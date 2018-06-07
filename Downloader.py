@@ -16,6 +16,7 @@ class Downloader(QDialog):
         save_location.setPlaceholderText("File save Location")
 
         progress.setValue(0)
+        progress.setAlignment(Qt.AlignHCenter)
 
         layout.addWidget(url)
         layout.addWidget(save_location)
