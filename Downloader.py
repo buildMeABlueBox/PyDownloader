@@ -7,13 +7,13 @@ class Downloader(QDialog):
     def __init__(self):
         QDialog.__init__(self)
         layout = QVBoxLayout()
-        url = QLineEdit()
-        save_location = QLineEdit()
+        self.url = QLineEdit()
+        self.save_location = QLineEdit()
         progress = QProgressBar()
         download = QPushButton("Download")
 
-        url.setPlaceholderText("URL")
-        save_location.setPlaceholderText("File save Location")
+        self.url.setPlaceholderText("URL")
+        self.save_location.setPlaceholderText("File save Location")
 
         progress.setValue(0)
         progress.setAlignment(Qt.AlignHCenter)
@@ -26,6 +26,13 @@ class Downloader(QDialog):
         self.setLayout(layout)
 
         self.setWindowTitle("PyDownloader")
+
+        download.clicked.connect(self.download)
+
+
+    def download(self):
+        url = self.url.text()
+        save_location = self.save_location.text()
 
 
 app = QApplication(sys.argv)
